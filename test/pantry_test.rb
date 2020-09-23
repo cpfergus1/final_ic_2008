@@ -28,11 +28,13 @@ class PantryTest < Minitest::Test
     assert_equal expected, pantry.stock
     assert_equal 0, pantry.stock_check(ingredient1)
     pantry.restock(ingredient1, 5)
+    expected = 5
+    assert_equal expected, pantry.stock_check(ingredient1)
     pantry.restock(ingredient1, 10)
-    expected = {ingredient1 => 15}
+    expected = 15
     assert_equal expected, pantry.stock_check(ingredient1)
     pantry.restock(ingredient2, 7)
-    expected = {ingredient1 => 15, ingredient2 => 7}
+    expected = 7
     assert_equal expected, pantry.stock_check(ingredient2)
   end
 end
