@@ -1,5 +1,5 @@
 class CookBook
-  
+
 attr_reader :recipes
 
   def initialize
@@ -27,4 +27,11 @@ attr_reader :recipes
   def date
     Time.now.strftime('%m-%d-%y')
   end
+
+  def summary
+    summary = []
+    @recipes.each do |recipe|
+      recipe_hash = Hash.new(0)
+      recipe_hash[:name] = recipe.name
+      recipe_hash[:details] =  
 end
