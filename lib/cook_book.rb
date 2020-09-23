@@ -18,4 +18,8 @@ attr_reader :recipes
     end
     ingredients
   end
+
+  def highest_calorie_meal
+    @recipes.max {|recipe| recipe.total_calories}
+  end
 end
