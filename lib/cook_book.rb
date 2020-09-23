@@ -3,6 +3,7 @@ attr_reader :recipes
 
   def initialize
     @recipes = []
+    @date = Time.now.strftime('%m%d%y')
   end
 
   def add_recipe(recipe)

@@ -56,4 +56,10 @@ class CookBookTest < Minitest::Test
     cookbook.add_recipe(recipe2)
     assert_equal recipe2, cookbook.highest_calorie_meal
   end
+
+  def cookbook_has_date_of_creation
+    cookbook = CookBook.new
+    require "pry"; binding.pry
+    assert_equal Time.now.strftime('%m%d%y'), cookbook.date
+  end
 end
