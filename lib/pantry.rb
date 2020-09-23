@@ -1,3 +1,4 @@
+require_relative 'recipe'
 
 class Pantry
   attr_reader :stock
@@ -12,5 +13,11 @@ class Pantry
 
   def restock(ingredient, amount)
     @stock[ingredient] += amount
+  end
+
+  def enough_ingredients_for?(recipe)
+    recipe.ingredients.map do |ingredient|
+      stock_check(ingredient) >= recipe.ingredients_required[ingredient]
+    end.all?
   end
 end
